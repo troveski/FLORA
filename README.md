@@ -22,25 +22,28 @@ conda env create -f env/flora.yml
 conda activate flora
 ```
 
-### 1.1. Models donwload
+### 1.2. Models Download
 
-FLUX inside UNET folder: 
+Before running the project, download the following models and place them in the correct folders:
 
-https://huggingface.co/black-forest-labs/FLUX.1-dev/tree/main
-https://huggingface.co/black-forest-labs/FLUX.1-Fill-dev/tree/main
+#### 🔹 UNet (FLUX)
+Download and place inside the `UNET/` folder:
+- [FLUX.1-dev](https://huggingface.co/black-forest-labs/FLUX.1-dev/tree/main)
+- [FLUX.1-Fill-dev](https://huggingface.co/black-forest-labs/FLUX.1-Fill-dev/tree/main)
 
-CLIP, inside CLIP folder: 
+#### 🔹 CLIP
+Download from [Flux Text Encoders](https://huggingface.co/comfyanonymous/flux_text_encoders/tree/main) and place inside the `CLIP/` folder.
 
-https://huggingface.co/comfyanonymous/flux_text_encoders/tree/main
-t5xxl_fp8_e4m3fn.safetensors and t5xxl_fp16.safetensors
+Required files:
+- `t5xxl_fp8_e4m3fn.safetensors`
+- `t5xxl_fp16.safetensors`
 
-VAE, inside VAE folder: 
+#### 🔹 VAE
+Download and place inside the `VAE/` folder:
+- [flux_vae.safetensors](https://huggingface.co/StableDiffusionVN/Flux/blob/main/Vae/flux_vae.safetensors)
 
-https://huggingface.co/StableDiffusionVN/Flux/blob/main/Vae/flux_vae.safetensors
-
-LORAs, inside de loras folder: 
-
-
+#### 🔹 LoRAs
+Place all your LoRA files inside the `loras/` folder.
 
 ---
 
