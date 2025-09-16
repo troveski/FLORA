@@ -22,10 +22,6 @@ conda env create -f env/flora.yml
 conda activate flora
 ```
 
-### 1.2. (Optional) Azure ML Setup
-
-- If you want to use Azure ML, see [`env/flora.aml`](env/flora.aml) for configuration.
-
 ---
 
 ## 2. Running FLORA
@@ -34,7 +30,7 @@ The main script is [`lora_fast.py`](lora_fast.py). It is optimized for speed and
 
 ### 2.1. Prepare Your Dataset
 
-- Your input dataset should have the following structure:
+- Your input dataset should have the following structure:   (labels should be in yolov7 format)
   ```
   input/
     images/
@@ -105,4 +101,4 @@ MIT © Argos Lab, 2025
 
 ## 6. Contact
 
-For questions or issues, contact the author or open an issue in the repository.
+For questions or issues, contact the author or open an issue in the repository, he is a nice guy 😀
