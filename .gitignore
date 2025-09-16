@@ -1,1 +1,4 @@
-models/
+models/clip/
+models/unet/
+models/loras/
+models/vae/
