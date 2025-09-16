@@ -22,6 +22,26 @@ conda env create -f env/flora.yml
 conda activate flora
 ```
 
+### 1.1. Models donwload
+
+FLUX inside UNET folder: 
+
+https://huggingface.co/black-forest-labs/FLUX.1-dev/tree/main
+https://huggingface.co/black-forest-labs/FLUX.1-Fill-dev/tree/main
+
+CLIP, inside CLIP folder: 
+
+https://huggingface.co/comfyanonymous/flux_text_encoders/tree/main
+t5xxl_fp8_e4m3fn.safetensors and t5xxl_fp16.safetensors
+
+VAE, inside VAE folder: 
+
+https://huggingface.co/StableDiffusionVN/Flux/blob/main/Vae/flux_vae.safetensors
+
+LORAs, inside de loras folder: 
+
+
+
 ---
 
 ## 2. Running FLORA
