@@ -1,0 +1,106 @@
+# FLORA - YOLO Dataset Augmentation with LoRA & ComfyUI
+
+## Overview
+
+FLORA is a Python tool for augmenting YOLO datasets using inpainting with LoRA models via ComfyUI. It is highly optimized and easy to use. This README will guide you through environment setup and running the main script.
+
+---
+
+## 1. Environment Setup
+
+All environment setup instructions and files are in the [`env/`](env/) folder.
+
+### 1.1. Create Conda Environment
+
+- The file [`env/flora.yml`](env/flora.yml) defines the required packages.
+- To create the environment, run:
+
+```sh
+conda env create -f env/flora.yml
+conda activate flora
+```
+
+### 1.2. (Optional) Azure ML Setup
+
+- If you want to use Azure ML, see [`env/flora.aml`](env/flora.aml) for configuration.
+
+---
+
+## 2. Running FLORA
+
+The main script is [`lora_fast.py`](lora_fast.py). It is optimized for speed and batch processing.
+
+### 2.1. Prepare Your Dataset
+
+- Your input dataset should have the following structure:
+  ```
+  input/
+    images/
+      image1.jpg
+      image2.jpg
+      ...
+    labels/
+      image1.txt
+      image2.txt
+      ...
+  ```
+
+### 2.2. Run the Script
+
+Use the following command template:
+
+```sh
+python lora_fast.py \
+  --input input \
+  --output output_augmented \
+  --k 3 \
+  --target-class 0 \
+  --prompt "your positive prompt here" \
+  --negative-prompt "your negative prompt here" \
+  --lora-name "your_lora_model.safetensors" \
+  --lora-strength-model 1.0 \
+  --lora-strength-clip 1.0 \
+  --guidance 6.5 \
+  --steps 15
+```
+
+#### Arguments
+
+- `--input`: Path to your dataset folder (must contain `images/` and `labels/`).
+- `--output`: Output folder for augmented dataset.
+- `--k`: Number of augmentations per image.
+- `--target-class`: YOLO class ID to use for inpainting.
+- `--prompt`: Positive prompt for generation.
+- `--negative-prompt`: Negative prompt (default: `"blurry, low quality, cartoon, watermark, signature"`).
+- `--lora-name`: Filename of your LoRA model.
+- `--lora-strength-model`: LoRA strength for UNET (default: `1.0`).
+- `--lora-strength-clip`: LoRA strength for CLIP (default: `1.0`).
+- `--guidance`: CFG scale (default: `6.5`).
+- `--steps`: Number of sampling steps (default: `15`).
+- `--no-originals`: (Optional) Exclude original images/labels from output.
+
+---
+
+## 3. Output
+
+- Augmented images and labels will be saved in the specified output directory, under `images/` and `labels/`.
+
+---
+
+## 4. Troubleshooting
+
+- Make sure your Conda environment is activated before running the script.
+- Check that all required models (LoRA, VAE, UNET, CLIP) are available in the correct paths.
+- For GPU/OpenCV issues, see [custom_nodes/ComfyUI-Impact-Pack/troubleshooting/TROUBLESHOOTING.md](custom_nodes/ComfyUI-Impact-Pack/troubleshooting/TROUBLESHOOTING.md).
+
+---
+
+## 5. License
+
+MIT © Argos Lab, 2025
+
+---
+
+## 6. Contact
+
+For questions or issues, contact the author or open an issue in the repository.
