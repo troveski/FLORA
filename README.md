@@ -45,6 +45,8 @@ Download and place inside the `VAE/` folder:
 #### 🔹 LoRAs
 Place all your LoRA files inside the `loras/` folder.
 
+https://drive.google.com/drive/folders/1bczkgciGCLr4cANbfkvnT1wLr-D_a-nq?usp=sharing
+
 ---
 
 ## 2. Running FLORA
