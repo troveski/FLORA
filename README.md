@@ -1,5 +1,7 @@
 # FLORA - YOLO Dataset Augmentation with LoRA & ComfyUI
 
+![End-to-End Object-Level Image Synthesis via LoRA](env/comfyui_pipeline.png)
+
 ## Overview
 
 FLORA is a Python tool for augmenting YOLO datasets using inpainting with LoRA models via ComfyUI. It is highly optimized and easy to use. This README will guide you through environment setup and running the main script.
