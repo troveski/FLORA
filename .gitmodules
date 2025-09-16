@@ -1,0 +1,9 @@
+[submodule "custom_nodes/ComfyUI-Impact-Pack"]
+	path = custom_nodes/ComfyUI-Impact-Pack
+	url = https://github.com/comfyanonymous/ComfyUI-Impact-Pack.git
+[submodule "custom_nodes/ComfyUI-KJNodes"]
+	path = custom_nodes/ComfyUI-KJNodes
+	url = https://github.com/Kiri-Unity/ComfyUI-KJNodes.git
+[submodule "custom_nodes/ComfyUI-to-Python-Extension"]
+	path = custom_nodes/ComfyUI-to-Python-Extension
+	url = https://github.com/user/ComfyUI-to-Python-Extension.git
