@@ -209,4 +209,4 @@ Notes:
 - Ensure that the `data.yaml` file paths are **absolute paths**, not relative paths, to avoid errors.  
 - Make sure all labels are in **YOLOv7 format**.  
 - Always train on GPU, not CPU. Training on CPU may fail or be extremely slow.  
-- Batch size can affect both speed and final accuracy.  
+- Batch size can affect both speed and final results a lot.  
