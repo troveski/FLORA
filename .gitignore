@@ -2,3 +2,4 @@ models/clip/
 models/unet/
 models/loras/
 models/vae/
+mri_train_200/
