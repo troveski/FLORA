@@ -132,7 +132,7 @@ For questions or issues, contact the author or open an issue in the repository, 
 
 ## 7. Example: MRI Dataset
 
-To test the environment and see a full run example, you can use the included **MRI dataset** together with the provided LoRA model. (they are inside the google drive)
+To test the environment and see a full run example, you can use the included **MRI dataset** together with the provided LoRA model.
 
 Run the following command:
 
@@ -157,3 +157,56 @@ This example uses:
 - Target class: `0` (replace with your actual MRI label if needed)
 
 The generated augmented dataset will be available in the `output/` folder.
+
+---
+
+## 8. Training and Testing with YOLOv7
+
+After generating all the augmented images, you will need to train a YOLO model and then test it. Follow these steps:
+
+### 8.1. Clone YOLOv7 Repository
+
+First, clone the YOLOv7 repository:
+
+```sh
+git clone https://github.com/WongKinYiu/yolov7.git
+cd yolov7
+```
+
+### 8.2. Download Pretrained Weights
+
+Download the specific pretrained weights `yolov7_training.pt` for training:
+
+- These weights are required for proper initialization.
+- Place them in the YOLOv7 root folder.
+
+### 8.3. Train the Model
+
+Run the training script:
+
+```sh
+python train.py   --img-size 640   --cfg cfg/training/yolov7.yaml   --hyp data/hyp.scratch.custom.yaml   --batch 16   --epochs 100   --data /home/dataset/mri/data.yaml   --weights yolov7_training.pt   --name mri_flora
+```
+
+Notes:  
+- Training time depends on your GPU. Typically, it takes **6–12 hours**, up to **24 hours** for large datasets.  
+- Adjust the `--batch` size according to your GPU memory. For example, an A100 GPU can handle up to 120. On smaller GPUs, reduce it to 8.  
+
+### 8.4. Test the Model
+
+After training, test the model with:
+
+```sh
+python test.py   --data /home/dataset/mri/data.yaml   --img 640   --batch 16   --weights runs/train/mri_flora/weights/best.pt   --task test   --name mri_flora_test   --exist-ok
+```
+
+Notes:  
+- Testing time also depends on your GPU.  
+- AI models are probabilistic. Results may vary slightly even with the same setup. A difference of ±5% is normal.  
+
+### 8.5. Common Tips
+
+- Ensure that the `data.yaml` file paths are **absolute paths**, not relative paths, to avoid errors.  
+- Make sure all labels are in **YOLOv7 format**.  
+- Always train on GPU, not CPU. Training on CPU may fail or be extremely slow.  
+- Batch size can affect both speed and final accuracy.  
