@@ -132,7 +132,7 @@ For questions or issues, contact the author or open an issue in the repository, 
 
 ## 7. Example: MRI Dataset
 
-To test the environment and see a full run example, you can use the included **MRI dataset** together with the provided LoRA model.
+To test the environment and see a full run example, you can use the included **MRI dataset** together with the provided LoRA model. (they are inside the google drive)
 
 Run the following command:
 
