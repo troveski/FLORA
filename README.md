@@ -127,3 +127,33 @@ MIT © Argos Lab, 2025
 ## 6. Contact
 
 For questions or issues, contact the author or open an issue in the repository, he is a nice guy 😀
+
+---
+
+## 7. Example: MRI Dataset
+
+To test the environment and see a full run example, you can use the included **MRI dataset** together with the provided LoRA model.
+
+Run the following command:
+
+```sh
+python lora_fast.py \
+  --input mri_train_200 \
+  --output output \
+  --k 3 \
+  --target-class 0 \
+  --prompt "MRI_POSITIVE" \
+  --negative-prompt "blurry, low quality, cartoon, watermark, signature" \
+  --lora-name "lora_mri.safetensors" \
+  --lora-strength-model 1.0 \
+  --lora-strength-clip 1.0 \
+  --guidance 6.5 \
+  --steps 15
+```
+
+This example uses:
+- Dataset: `mri_train_200`
+- LoRA: `lora_mri.safetensors`
+- Target class: `0` (replace with your actual MRI label if needed)
+
+The generated augmented dataset will be available in the `output/` folder.

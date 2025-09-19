@@ -3,3 +3,5 @@ models/unet/
 models/loras/
 models/vae/
 mri_train_200/
+output/
+output_augmented/
